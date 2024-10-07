@@ -70,4 +70,4 @@ const UserSchema : Schema<User> = new Schema ({
 
 //already hai model || model nhi hai, model banana padega
 // Nextjs does not know the application is runnign for the first time or has already been initialised earlier
-const UserModel = (mongoose.models.User as mongoose.Model<User>) || (mongoose.model<User>("User" , UserSchema))
+export const UserModel = (mongoose.models.User as mongoose.Model<User>) || (mongoose.model<User>("User" , UserSchema))
