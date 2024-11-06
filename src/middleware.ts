@@ -29,9 +29,9 @@ export async function middleware(request: NextRequest){
 // to assign paths where we wish to use middleware, it wont run at other paths
 export const config = {
     matcher : [
-        '/sign-in',
-        '/sign-up',
-        '/',
+        // '/sign-in',
+        // '/sign-up',
+        // '/',
         '/dashboard/:path*',
         '/verify/:path*'
     ] ,
