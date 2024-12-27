@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import AuthProvider from "@/context/AuthProvider";
 import { Toaster } from "@/components/ui/toaster"
+import './globals.css';
+import Navbar from "@/components/Navbar";
 
 
 export const metadata: Metadata = {
@@ -16,7 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProvider>
-        <body >
+        <body className="max-h-screen">
+          <Navbar/>
           {children} {/* <-- Add children here to render the page content */}
           <Toaster/>
         </body>

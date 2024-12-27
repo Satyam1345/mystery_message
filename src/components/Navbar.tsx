@@ -4,14 +4,19 @@ import Link from 'next/link'
 import { useSession , signOut } from 'next-auth/react'
 import {User} from 'next-auth'
 import { Button } from './ui/button'
+import { TiMessages } from "react-icons/ti";
+
 const Navbar = () => {
 
     const {data : session } = useSession()
     const user : User = session?.user 
   return (
-    <nav className = 'p-4 md:p-6 shadow-sm'>
-        <div className='container mx-auto flex flex-col md:flex-row justify-between bg-red-400 items-center'>
-            <a className = 'text-xxl font-bold mb-6 md:mb-0' href = "#">Mystery Message</a>
+    <nav className = 'shadow-sm h-20 bg-blue-600'>
+        <div className='container mx-auto flex flex-col md:flex-row justify-between items-center p-4 text-white font-normal text-2xl'>
+           <div className='flex flex-row gap-x-2'>
+           <TiMessages className='mt-2'/>
+           <a className = 'text-xxl font-bold mb-6 md:mb-0' href = "#">Mystery Msg</a>
+           </div>
             {
                 session ? (
                     <>
@@ -20,7 +25,7 @@ const Navbar = () => {
                     </>
                 ) : (
                     <Link href = '/sign-in'>
-                        <Button className='w-full md:w-auto'>Login</Button>
+                        <Button className='w-full md:w-auto text-xl border-white rounded-xl border-2 hover:bg-blue-500'>Login</Button>
                     </Link>
                 )
             }

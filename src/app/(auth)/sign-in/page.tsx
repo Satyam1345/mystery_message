@@ -1,67 +1,42 @@
-'use client'
-import React, { useState } from 'react'
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
-import { useToast } from "@/hooks/use-toast"
-import { useRouter } from 'next/navigation'
-import { signInSchema } from '@/schemas/signInSchema'
-import { signIn } from 'next-auth/react'
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Loader2 } from 'lucide-react'
+'use client';
+import React from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import * as z from 'zod';
+import { useToast } from '@/hooks/use-toast';
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Loader2 } from 'lucide-react';
+// import { useHydrationFix } from '@/hooks/useHydrationFix';
+// import { handleSignIn } from '@/lib/signInMethods';
+import { signInSchema } from '@/schemas/signInSchema';
+import { useHydrationFix } from '@/hooks/useHydrationFix';
+import { handleSignIn } from '@/lib/signInMethods';
+import { Toast } from '@radix-ui/react-toast';
 
 function SignInPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const { toast } = useToast()
-  const router = useRouter()
+  const { isSubmitting, setIsSubmitting } = useHydrationFix();
+  const { toast } = useToast();
 
-  // Initialize the form with the corrected schema
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
       username: '',
-      password: ''
-    }
-  })
+      password: '',
+    },
+  });
 
-  // Handle form submission
-  const onSubmit = async (data: z.infer<typeof signInSchema>) => {
-    setIsSubmitting(true)
-    try {
-      const result = await signIn('credentials', {
-        redirect: false,
-        identifier: data.username,
-        password: data.password
-      })
-
-      if (result?.error) {
-        toast({
-          title: "Login Failed",
-          description: result.error === 'CredentialsSignin' ? "Incorrect Username or Password" : result.error,
-          variant: "destructive"
-        })
-      } else if (result?.url) {
-        router.replace(result.url)
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred",
-        variant: "destructive"
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
+  const onSubmit = (data: z.infer<typeof signInSchema>) => {
+    handleSignIn(data, setIsSubmitting, Toast);
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight mb-6">
+          <div className="text-4xl font-extrabold tracking-tight mb-6">
             Sign In to Mystery Msg
-          </h1>
+          </div>
         </div>
 
         <Form {...form}>
@@ -115,7 +90,7 @@ function SignInPage() {
         </Form>
       </div>
     </div>
-  )
+  );
 }
 
-export default SignInPage
+export default SignInPage;

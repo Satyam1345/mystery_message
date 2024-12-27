@@ -1,17 +1,17 @@
 [
     {
-      "title": "Message from User123",
-      "content": "Hey, how are you doing today?",
+      "title": "Message from your ??",
+      "content": "Do you have a name, or I can call you mine:) ?",
       "received": "10 minutes ago"
     },
     {
       "title": "Message from SecretAdmirer",
-      "content": "I really liked your recent post!",
+      "content": "Is your name Google? Because you’ve got everything I’ve been searching for.",
       "received": "2 hours ago"
     },
     {
       "title": "Message from MysteryGuest",
-      "content": "Do you have any book recommendations?",
+      "content": "Is your name Wi-Fi? Because I’m feeling a connection.?",
       "received": "1 day ago"
     }
   ]

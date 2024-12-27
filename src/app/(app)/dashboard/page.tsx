@@ -106,7 +106,7 @@ const page = () => {
     }
   }
 
-  const {username} = session?.user as User
+  const username = (session?.user as User)?.username || "Guest";
   const baseUrl = `${window.location.protocol}//${window.location.host}`
   const profileUrl = `${baseUrl}/u/${username}`
 
@@ -125,7 +125,7 @@ const page = () => {
 
   return (
     <>
-      <div className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-white rounded w-full max-w-6xl">
+      <div className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-blue-400 rounded-3xl w-full max-w-6xl">
       <h1 className="text-4xl font-bold mb-4">User Dashboard</h1>
 
       <div className="mb-4">
@@ -172,7 +172,7 @@ const page = () => {
         {messages.length > 0 ? (
           messages.map((message, index) => (
             <MessageCard
-              key={message._id}
+              key={message._id as string}
               message={message}
               onMessageDelete={handleDeleteMessage}
             />
