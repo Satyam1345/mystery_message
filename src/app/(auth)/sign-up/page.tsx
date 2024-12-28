@@ -81,6 +81,7 @@ function page() {
           variant : "destructive" 
         })
         setisSubmitting(false)
+        router.replace('/verify/${username}')
       } 
   }
 
@@ -157,12 +158,8 @@ function page() {
           )}
         />
 
-        <button type="submit" disabled = {isSubmitting} className=' bg-blue-700 bg-center cursor-pointer text-center rounded-xl'>{
-          isSubmitting ? (
-              <>
-                          <Loader2 className='mr-2 h-4 w-4 animate-spin'>Please Wait</Loader2>
-</>          ) : ('SignUp')
-      }</button>
+        <button type="submit" disabled = {isSubmitting} className=' bg-blue-600 bg-center cursor-pointer text-center rounded-xl px-4 py-2 hover:bg-blue-500'>SignUp
+      </button>
           </form>
         </Form>
         <div className="text-center mt=4">

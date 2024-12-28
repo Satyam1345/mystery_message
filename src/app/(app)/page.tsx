@@ -25,9 +25,10 @@ export default function Home() {
   <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-gray-100 text-black">
     <section className="text-center mb-8 md:mb-12">
       <h1 className="text-3xl md:text-5xl font-bold">
-          Keep your friends guessing about your Identity      </h1>
-      <p className="mt-3 md:mt-4 text-base md:text-lg">
-          Message them Anonymously & Expressss your True Feelings 
+          Keep your Friends guessing about your Identity🤔      
+      </h1>
+      <p className="mt-3 md:mt-4 md:text-lg font-semibold text-3xl">
+          Message them Anonymously & Expressss your True Feelings🤭🤭🤭 
       </p>
     </section>
 
@@ -39,7 +40,7 @@ export default function Home() {
       <CarouselContent>
         {messages.map((message, index) => (
           <CarouselItem key={index} className="p-4">
-            <Card className='bg-blue-400 rounded-xl border-2 border-blue-500'>
+            <Card className='bg-blue-500 rounded-xl border-4 border-blue-700'>
               <CardHeader>
                 <CardTitle>{message.title}</CardTitle>
               </CardHeader>

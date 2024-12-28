@@ -12,12 +12,17 @@ import { ApiResponse } from '@/types/ApiResponse'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { Link } from 'lucide-react'
 
 const verifyAccount = () =>{
     const router = useRouter()
     const params = useParams()
     const {toast} = useToast()
-    
+
+    const handleSignInRedirect = () => {
+      router.push('/sign-in')
+    }
+
     const form = useForm<z.infer<typeof verifySchema>>(
         {
           resolver : zodResolver(verifySchema),
@@ -74,9 +79,19 @@ const verifyAccount = () =>{
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" className='w-full md:w-auto text-xl bg-blue-600 mx-36 border-white text-white rounded-xl border-2 hover:bg-blue-500'>Submit</Button>
       </form>
     </Form>
+
+        <div className="text-center mt-8">
+          <p>
+            Please move directly to sign-in as sending an otp will require activation of paid serivces, currently it sends a mail only to me: {' '}
+            <Button onClick={handleSignInRedirect} className='w-full md:w-auto text-xl bg-blue-600 mx-36 mt-8 border-white text-white rounded-xl border-2 hover:bg-blue-500'>
+            Sign In
+            </Button>
+          </p>
+        </div>
+
             </div>
         </div>
     </>
