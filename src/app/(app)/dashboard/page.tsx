@@ -27,11 +27,10 @@ const Page = () => {
   // Optimistic UI, show immediate changes on UI to the user, will update backend later
   const handleDeleteMessage = (messageId: string) => {
     setMessages(
-      messages.filter((message) => {
-        message._id !== messageId;
-      })
+      messages.filter((message) => message._id !== messageId)  // Add return statement or ensure expression returns a boolean
     );
   };
+  
 
   const { data: session } = useSession();
   const form = useForm({
