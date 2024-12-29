@@ -16,10 +16,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   return (
     <>
+    <Navbar/>
       {/* Main content */}
       <div className="flex flex-col min-h-[89vh]">
   <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-gray-100 text-black">

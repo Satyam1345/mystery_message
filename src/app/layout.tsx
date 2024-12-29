@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <AuthProvider>
         <body className="max-h-screen">
-          <Navbar/>
+          {/* <Navbar/> */}
           {children} {/* <-- Add children here to render the page content */}
           <Toaster/>
         </body>

@@ -13,6 +13,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Link } from 'lucide-react'
+import Navbar from '@/components/Navbar'
 
 const verifyAccount = () =>{
     const router = useRouter()
@@ -62,6 +63,7 @@ const verifyAccount = () =>{
       }
   return (
     <>
+    <Navbar/>
         <div className="flex justify-center itens-center min-h-screen bg-gray-100">
             <div className="w-full max-w-md p-8">
             <Form {...form}>

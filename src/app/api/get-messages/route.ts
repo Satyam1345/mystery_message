@@ -28,22 +28,21 @@ export async function GET(request : Request){
     // We store USER ID as string , converted during options.ts file, but while performing Aggregation Pipelines, id as string causes a lot of issues, so we need to convert it back to number before proceeding further
     const userId = new mongoose.Types.ObjectId(user._id) ;
     try{
-        const user = await UserModel.aggregate(
-            [
-                {
-                    $match : {id : userId}
-                },
-                {
-                    $unwind : '$messages'
-                },
-                {
-                    $sort : {'messages.createdAt' : -1}
-                },
-                {
-                    $group : {_id : '$_id' , messages : {$push : '$messages'}}
-                }
-            ]
-        ) 
+        const user = await UserModel.aggregate([
+            {
+                $match: { _id: userId }, // Ensure '_id' matches the schema
+            },
+            {
+                $unwind: '$messages',
+            },
+            {
+                $sort: { 'messages.createdAt': -1 },
+            },
+            {
+                $group: { _id: '$_id', messages: { $push: '$messages' } },
+            },
+        ]);
+        
         if(!user || user.length === 0){
             return Response.json(
                 {
