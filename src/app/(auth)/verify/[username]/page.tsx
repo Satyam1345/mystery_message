@@ -1,6 +1,5 @@
 'use client'
 import { useToast } from '@/hooks/use-toast'
-import { signUpSchema } from '@/schemas/signUpSchema'
 import { verifySchema } from '@/schemas/verifySchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
@@ -12,10 +11,9 @@ import { ApiResponse } from '@/types/ApiResponse'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Link } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 
-const verifyAccount = () =>{
+const VerifyAccount = () =>{
     const router = useRouter()
     const params = useParams()
     const {toast} = useToast()
@@ -51,7 +49,7 @@ const verifyAccount = () =>{
         } catch (error) {
             console.log("Otp Verification Failed" , error)
              const axiosError = error as AxiosError<ApiResponse>
-             let errorMessage = axiosError.response?.data.message
+             const errorMessage = axiosError.response?.data.message
              toast ({
                 title : "OTP Verification Failed",
                 description : errorMessage,
@@ -100,4 +98,4 @@ const verifyAccount = () =>{
   )
 }
 
-export default verifyAccount
+export default VerifyAccount

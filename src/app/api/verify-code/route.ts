@@ -1,8 +1,5 @@
 import dbConnect from "@/lib/dbConnect";
 import { UserModel } from "@/models/User";
-import {z} from 'zod'
-import { usernameValidation } from "@/schemas/signUpSchema";
-import { CodeBlock } from "@react-email/components";
 
 export async function POST(request : Request){
     await dbConnect() 

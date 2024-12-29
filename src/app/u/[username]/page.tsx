@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useParams, useSearchParams } from 'next/navigation';
-import Navbar from '@/components/Navbar';
+import { useParams} from 'next/navigation';
 
 const Page = () => {
   const [message, setMessage] = useState('');

@@ -4,19 +4,18 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import Link from 'next/link'
-import { useDebounceValue , useDebounceCallback } from 'usehooks-ts'
+import { useDebounceCallback } from 'usehooks-ts'
 import { useToast } from "@/hooks/use-toast"
 import { useRouter } from 'next/navigation'
 import { signUpSchema } from '@/schemas/signUpSchema'
 import axios, { AxiosError } from 'axios'
 import { ApiResponse } from '@/types/ApiResponse'
-import { Form, FormField , FormItem , FormDescription , FormLabel , FormControl , FormMessage} from '@/components/ui/form'
+import { Form, FormField , FormItem , FormLabel , FormControl , FormMessage} from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { Button } from '@react-email/components'
 import { Loader2 } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 
-function page() {
+function Page() {
 
   const [username , setUsername] = useState('')
   const [usernameMessage , setUsernameMessage] = useState('') // if the username exists or not
@@ -75,7 +74,7 @@ function page() {
       } catch (error) {
         console.log("Error in Sign Up of User" , error)
         const axiosError = error as AxiosError<ApiResponse>
-        let errorMessage = axiosError.response?.data.message
+        const errorMessage = axiosError.response?.data.message
         toast ({
           title : "Signup failed",
           description : errorMessage,
@@ -179,4 +178,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

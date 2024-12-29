@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import MessageCard from "@/components/MessageCard";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
@@ -17,7 +17,7 @@ import { useForm } from "react-hook-form";
 // import * as Switch from '@radix-ui/react-switch';
 
 
-const page = () => {
+const Page = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false); // when fetching messages
   const [isSwitchLoading, setIsSwithcLoading] = useState(false);
@@ -57,7 +57,7 @@ const page = () => {
     } finally {
       setIsSwithcLoading(false);
     }
-  }, [setValue]);
+  }, [setValue , toast]);
 
   const fetchMessages = useCallback(
     async (refresh: boolean = false) => {
@@ -89,14 +89,14 @@ const page = () => {
         setIsSwithcLoading(false);
       }
     },
-    [setIsLoading, setMessages]
+    [setIsLoading, setMessages , toast]
   );
 
   useEffect(() => {
     if (!session || !session.user) return;
     fetchMessages();
     fetchAcceptmessage();
-  }, [session, setValue, fetchMessages, fetchMessages]);
+  }, [session, setValue, fetchMessages, fetchAcceptmessage]);
 
   const handleSwitchChange = async () => {
     try {
@@ -197,7 +197,7 @@ const page = () => {
         </div>
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
           {messages.length > 0 ? (
-            messages.map((message, index) => (
+            messages.map((message) => (
               <MessageCard
                 key={message._id as string}
                 message={message}
@@ -213,4 +213,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -34,6 +34,7 @@ const MessageCard = ({ message, onMessageDelete }: MessageCardProps) => {
       onMessageDelete(message._id);
       setShowPopup(false); // Close the popup after deletion
     } catch (error) {
+      console.log(error)
       toast({
         title: "Error",
         description: "Failed to delete message.",

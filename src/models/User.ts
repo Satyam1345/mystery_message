@@ -28,7 +28,6 @@ export interface User extends Document {
     isAcceptingMessage : boolean;
     messages : Message[]
 }
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const emailRegexSimple = /^\S+@\S+\.\S+$/ ;
 
 const UserSchema : Schema<User> = new Schema ({
