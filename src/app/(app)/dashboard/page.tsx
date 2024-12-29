@@ -29,6 +29,7 @@ const Page = () => {
     setMessages(
       messages.filter((message) => message._id !== messageId)  // Add return statement or ensure expression returns a boolean
     );
+    
   };
   
 
@@ -63,7 +64,7 @@ const Page = () => {
       setIsLoading(true);
       setIsSwithcLoading(false);
       try {
-        const response = await axios.get<ApiResponse>("./api/get-messages");
+        const response = await axios.get<ApiResponse>("/api/get-messages");
         setMessages(response.data.messages || []);
         if (refresh) {
           toast({
@@ -118,9 +119,16 @@ const Page = () => {
       });
     }
   };
+  const [baseUrl, setBaseUrl] = useState("");
+
+useEffect(() => {
+  if (typeof window !== "undefined") {
+    setBaseUrl(`${window.location.protocol}//${window.location.host}`);
+  }
+}, []);
+
 
   const username = (session?.user as User)?.username || "Guest";
-  const baseUrl = `${window.location.protocol}//${window.location.host}`;
   const profileUrl = `${baseUrl}/u/${username}`;
 
   const copyToClipboard = () => {
