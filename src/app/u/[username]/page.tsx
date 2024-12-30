@@ -44,7 +44,7 @@ const Page = () => {
                     {/* <Navbar/> */}
     <div className="p-5 max-w-md mx-auto mt-40 bg-white shadow-xl rounded-md">
 
-  <h1 className="text-2xl font-bold mb-4">Enter your Secret Message here:</h1>
+  <h1 className="text-2xl font-bold mb-4">Send a Secret Text to {username}🤭 </h1>
   
   <div className="mb-4">
     <label

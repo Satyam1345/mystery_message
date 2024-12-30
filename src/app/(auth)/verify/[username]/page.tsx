@@ -63,7 +63,7 @@ const VerifyAccount = () =>{
   return (
     <>
     <Navbar/>
-        <div className="flex justify-center itens-center min-h-screen bg-gray-100">
+        <div className="w-full flex justify-center itens-center min-h-screen bg-gray-100">
             <div className="w-full max-w-md p-8">
             <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -80,17 +80,18 @@ const VerifyAccount = () =>{
             </FormItem>
           )}
         />
-        <Button type="submit" className='w-full md:w-auto text-xl bg-blue-600 mx-36 border-white text-white rounded-xl border-2 hover:bg-blue-500'>Submit</Button>
+        <Button type="submit" className='text-xl bg-blue-600  mx-32 lg:mx-auto border-white text-white rounded-xl border-2 hover:bg-blue-500'>Submit</Button>
       </form>
     </Form>
 
         <div className="text-center mt-8">
           <p>
             Please move directly to sign-in as sending an otp will require activation of paid serivces, currently it sends a mail only to me: {' '}
-            <Button onClick={handleSignInRedirect} className='w-full md:w-auto text-xl bg-blue-600 mx-36 mt-8 border-white text-white rounded-xl border-2 hover:bg-blue-500'>
+            
+          </p>
+          <Button onClick={handleSignInRedirect} className='md:w-auto text-xl bg-blue-600 mx-auto mt-8 border-white text-white rounded-xl border-2 hover:bg-blue-500'>
             Sign In
             </Button>
-          </p>
         </div>
 
             </div>

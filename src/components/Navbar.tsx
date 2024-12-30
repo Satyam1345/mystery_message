@@ -15,20 +15,20 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='shadow-sm h-20 bg-blue-600'>
+    <nav className='shadow-sm h-32 lg:h-20 bg-blue-600 w-full center'>
       <div className='container mx-auto flex flex-col md:flex-row justify-between items-center p-4 text-white font-normal text-2xl'>
         <div className='flex flex-row gap-x-2'>
           <TiMessages className='mt-2' />
-          <a className='text-xxl font-bold mb-6 md:mb-0' href="#">Mystery Msg</a>
+          <a className='text-xl lg:text-xxl font-bold md:mb-0' href="#">Mystery Msg</a>
         </div>
         {
           session ? (
             <>
-              <span>Welcome, {user.username || user.email}</span>
-              <Button className='w-full md:w-auto text-xl border-white rounded-xl border-2 hover:bg-blue-500' onClick={handleLogout}>Logout</Button>
+              <span className='lg:ml-40 '>Welcome, {user.username || user.email}</span>
+              <Button className='ml-80 md:w-auto lg:text-xl border-white rounded-xl border-2 hover:bg-blue-500' onClick={handleLogout}>Logout</Button>
             </>
           ) : (
-            <div className='flex flex-row gap-x-4'>
+            <div className='flex flex-row gap-x-4 mt-4'>
               <Link href='/sign-in'>
                 <Button className='w-full md:w-auto text-xl border-white rounded-xl border-2 hover:bg-blue-500'>Login</Button>
               </Link>
