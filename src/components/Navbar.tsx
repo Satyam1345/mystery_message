@@ -30,10 +30,10 @@ const Navbar = () => {
           ) : (
             <div className='flex flex-row gap-x-4 mt-4'>
               <Link href='/sign-in'>
-                <Button className='w-full md:w-auto text-xl border-white rounded-xl border-2 hover:bg-blue-500'>Login</Button>
+                <Button className='w-full md:w-auto lg:text-xl border-white rounded-xl border-2 hover:bg-blue-500'>Login</Button>
               </Link>
               <Link href='/sign-up'>
-                <Button className='w-full md:w-auto text-xl border-white rounded-xl border-2 hover:bg-blue-500'>SignUp</Button>
+                <Button className='w-full md:w-auto lg:text-xl border-white rounded-xl border-2 hover:bg-blue-500'>SignUp</Button>
               </Link>
             </div>
           )

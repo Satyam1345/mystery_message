@@ -146,7 +146,7 @@ useEffect(() => {
   return (
     <>
     <Navbar/>
-      <div className= {`my-8 md:mx-8 lg:mx-auto p-6 rounded-3xl w-full max-w-6xl transition-all duration-500 ${
+      <div className= {`my-8 mx-4 md:mx-8 lg:mx-auto p-6 rounded-3xl w-full max-w-6xl transition-all duration-500 ${
     acceptMessages
       ? 'bg-gradient-to-r from-blue-300 to-blue-600'
       : 'bg-gradient-to-r from-blue-600 to-blue-300'
