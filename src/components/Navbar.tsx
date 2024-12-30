@@ -15,25 +15,25 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='shadow-sm h-20 bg-blue-600'>
-      <div className='container mx-auto flex flex-col md:flex-row justify-between items-center p-4 text-white font-normal text-2xl'>
+    <nav className='shadow-sm lg:h-20 bg-blue-600 min-w-full mx-0 justify-center'>
+      <div className='container mx-auto flex flex-col md:flex-row justify-between items-center p-4 text-white font-normal lg:text-2xl'>
         <div className='flex flex-row gap-x-2'>
           <TiMessages className='mt-2' />
-          <a className='text-xxl font-bold mb-6 md:mb-0' href="#">Mystery Msg</a>
+          <a className='text-md lg:text-xxl font-bold mb-6 md:mb-0' href="#">Mystery Msg</a>
         </div>
         {
           session ? (
             <>
-              <span>Welcome, {user.username || user.email}</span>
-              <Button className='w-full md:w-auto text-xl border-white rounded-xl border-2 hover:bg-blue-500' onClick={handleLogout}>Logout</Button>
+              <span className='text-2xl'>Welcome, {user.username || user.email}</span>
+              <Button className='md:w-auto lg:text-xl border-white rounded-xl border-2 hover:bg-blue-500 justify-end ml-80 lg:ml-auto' onClick={handleLogout}>Logout</Button>
             </>
           ) : (
-            <div className='flex flex-row gap-x-4'>
+            <div className='flex flex-row gap-x-4 justify-items-end ml-52 lg:ml-auto'>
               <Link href='/sign-in'>
-                <Button className='w-full md:w-auto text-xl border-white rounded-xl border-2 hover:bg-blue-500'>Login</Button>
+                <Button className='w-full md:w-auto lg:text-xl border-white rounded-xl border-2 hover:bg-blue-500'>Login</Button>
               </Link>
               <Link href='/sign-up'>
-                <Button className='w-full md:w-auto text-xl border-white rounded-xl border-2 hover:bg-blue-500'>SignUp</Button>
+                <Button className='w-full md:w-auto lg:text-xl border-white rounded-xl border-2 hover:bg-blue-500'>SignUp</Button>
               </Link>
             </div>
           )
