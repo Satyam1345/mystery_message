@@ -116,7 +116,7 @@ function Page() {
                 
               </FormControl>
               {isCheckingUsername && <Loader2 className = "animate-spin" />}
-              <p className={`test-sm ${usernameMessage === "Username is available" ? 'text-green-500' : 'text-red-500'}`}>test {usernameMessage}</p>
+              <p className={`test-sm ${usernameMessage === "Username is available" ? 'text-green-500' : 'text-red-500'}`}> {username} {usernameMessage}</p>
               {/* <FormDescription>
                 This is your public display name.
               </FormDescription> */}

@@ -1,6 +1,7 @@
 'use client'
 import { signIn } from 'next-auth/react';
 import { z } from 'zod';
+import { toast as useToast } from '@/hooks/use-toast'; // Use the actual export, likely `toast`
 
 // Define the type for `toast` based on your implementation
 interface ToastOptions {
@@ -33,7 +34,6 @@ export const handleSignIn = async (
       window.location.replace(result.url);
     }
   } catch (error) {
-    console.log(error)
     toast({
       title: 'Error',
       description: 'An unexpected error occurred',
